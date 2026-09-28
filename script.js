@@ -46,30 +46,37 @@ function showForm(documentType) {
     if (documentType === "Rental Agreement") {
 
         fields = `
-            <label>Tenant Name</label>
-            <input id="tenantName" type="text"
-                placeholder="Enter tenant name">
+        fields = `
+    <label>Tenant Name</label>
+    <input id="tenantName" type="text"
+        placeholder="Enter tenant name">
 
-            <label>Landlord Name</label>
-            <input id="landlordName" type="text"
-                placeholder="Enter landlord name">
+    <label>Landlord Name</label>
+    <input id="landlordName" type="text"
+        placeholder="Enter landlord name">
 
-            <label>Property Address</label>
-            <textarea id="propertyAddress"
-                placeholder="Enter property address"></textarea>
+    <label>Property Address</label>
+    <textarea id="propertyAddress"
+        placeholder="Enter property address"></textarea>
 
-            <label>Monthly Rent</label>
-            <input id="rent" type="text"
-                placeholder="Enter monthly rent">
+    <label>Monthly Rent</label>
+    <input id="monthlyRent" type="number"
+        placeholder="Enter monthly rent">
 
-            <label>Agreement Duration</label>
-            <input id="duration" type="text"
-                placeholder="Example: 11 months">
+    <label>Security Deposit</label>
+    <input id="deposit" type="number"
+        placeholder="Enter security deposit">
 
-            <label>Security Deposit</label>
-            <input id="deposit" type="text"
-                placeholder="Enter security deposit">
-        `;
+    <label>Rental Period</label>
+    <input id="rentalPeriod" type="text"
+        placeholder="Example: 11 months">
+
+    <button onclick="generateDocument('Rental Agreement')">
+        Generate Document
+    </button>
+`;
+          
+    
 
     } else if (documentType === "Leave and License Agreement") {
 
