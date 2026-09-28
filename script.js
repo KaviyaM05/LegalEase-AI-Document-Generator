@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Get Started button
-    const buttons = document.querySelectorAll("button");
+    const button = document.getElementById("getStartedBtn");
 
-    if (buttons.length > 0) {
-        buttons[0].addEventListener("click", function () {
+    if (button) {
+        button.addEventListener("click", function () {
             showDocumentSelection();
         });
     }
