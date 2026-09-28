@@ -46,7 +46,6 @@ function showForm(documentType) {
     if (documentType === "Rental Agreement") {
 
         fields = `
-        fields = `
     <label>Tenant Name</label>
     <input id="tenantName" type="text"
         placeholder="Enter tenant name">
