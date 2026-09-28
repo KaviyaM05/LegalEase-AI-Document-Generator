@@ -177,169 +177,96 @@ function showForm(documentType) {
 
 function generateDocument(documentType) {
 
-    let content = "";
+    const tenantName = document.getElementById("tenantName")?.value;
+    const landlordName = document.getElementById("landlordName")?.value;
+    const propertyAddress = document.getElementById("propertyAddress")?.value;
+    const monthlyRent = document.getElementById("monthlyRent")?.value;
+    const rentalPeriod = document.getElementById("rentalPeriod")?.value;
+    const deposit = document.getElementById("deposit")?.value;
 
+    if (!tenantName || !landlordName || !propertyAddress ||
+        !monthlyRent || !rentalPeriod || !deposit) {
 
-    if (documentType === "Rental Agreement") {
-
-        const tenant = document.getElementById("tenantName").value;
-        const landlord = document.getElementById("landlordName").value;
-        const property = document.getElementById("propertyAddress").value;
-        const rent = document.getElementById("rent").value;
-        const duration = document.getElementById("duration").value;
-        const deposit = document.getElementById("deposit").value;
-
-        if (!tenant || !landlord || !property ||
-            !rent || !duration || !deposit) {
-
-            alert("Please fill in all the details.");
-            return;
-        }
-
-        content = `
-            <h2>Rental Agreement Details</h2>
-
-            <p><strong>Tenant:</strong> ${tenant}</p>
-
-            <p><strong>Landlord:</strong> ${landlord}</p>
-
-            <p><strong>Property Address:</strong> ${property}</p>
-
-            <p><strong>Monthly Rent:</strong> ${rent}</p>
-
-            <p><strong>Agreement Duration:</strong> ${duration}</p>
-
-            <p><strong>Security Deposit:</strong> ${deposit}</p>
-        `;
-
-    } else if (documentType === "Leave and License Agreement") {
-
-        const licensor = document.getElementById("licensorName").value;
-        const licensee = document.getElementById("licenseeName").value;
-        const property = document.getElementById("propertyAddress").value;
-        const period = document.getElementById("period").value;
-        const fee = document.getElementById("fee").value;
-
-        if (!licensor || !licensee || !property ||
-            !period || !fee) {
-
-            alert("Please fill in all the details.");
-            return;
-        }
-
-        content = `
-            <h2>Leave & License Details</h2>
-
-            <p><strong>Licensor:</strong> ${licensor}</p>
-
-            <p><strong>Licensee:</strong> ${licensee}</p>
-
-            <p><strong>Property Address:</strong> ${property}</p>
-
-            <p><strong>License Period:</strong> ${period}</p>
-
-            <p><strong>License Fee:</strong> ${fee}</p>
-        `;
-
-    } else if (documentType === "Affidavit") {
-
-        const name = document.getElementById("declarantName").value;
-        const address = document.getElementById("address").value;
-        const purpose = document.getElementById("purpose").value;
-        const statement = document.getElementById("statement").value;
-
-        if (!name || !address || !purpose || !statement) {
-
-            alert("Please fill in all the details.");
-            return;
-        }
-
-        content = `
-            <h2>Affidavit Details</h2>
-
-            <p><strong>Declarant:</strong> ${name}</p>
-
-            <p><strong>Address:</strong> ${address}</p>
-
-            <p><strong>Purpose:</strong> ${purpose}</p>
-
-            <p><strong>Statement:</strong></p>
-
-            <p>${statement}</p>
-        `;
-
-    } else if (documentType === "Legal Notice") {
-
-        const sender = document.getElementById("senderName").value;
-        const receiver = document.getElementById("receiverName").value;
-        const address = document.getElementById("address").value;
-        const subject = document.getElementById("subject").value;
-        const notice = document.getElementById("noticeDetails").value;
-
-        if (!sender || !receiver || !address ||
-            !subject || !notice) {
-
-            alert("Please fill in all the details.");
-            return;
-        }
-
-        content = `
-            <h2>Legal Notice Details</h2>
-
-            <p><strong>Sender:</strong> ${sender}</p>
-
-            <p><strong>Receiver:</strong> ${receiver}</p>
-
-            <p><strong>Address:</strong> ${address}</p>
-
-            <p><strong>Subject:</strong> ${subject}</p>
-
-            <p><strong>Notice Details:</strong></p>
-
-            <p>${notice}</p>
-        `;
+        alert("Please fill in all the details.");
+        return;
     }
-
 
     document.getElementById("result").innerHTML = `
 
         <div class="legal-document">
 
-            <h1>${documentType}</h1>
+            <h1>RENTAL AGREEMENT</h1>
 
             <hr>
 
-            ${content}
+            <h2>PARTIES</h2>
+
+            <p>
+                This Rental Agreement is made between
+                <strong>${landlordName}</strong>
+                (Landlord) and
+                <strong>${tenantName}</strong>
+                (Tenant).
+            </p>
+
+            <h2>PROPERTY</h2>
+
+            <p>
+                The property covered under this agreement is located at:
+            </p>
+
+            <p><strong>${propertyAddress}</strong></p>
+
+            <h2>RENT</h2>
+
+            <p>
+                The monthly rent agreed between the parties is
+                <strong>₹${monthlyRent}</strong>.
+            </p>
+
+            <h2>AGREEMENT PERIOD</h2>
+
+            <p>
+                The duration of this rental agreement is
+                <strong>${rentalPeriod}</strong>.
+            </p>
+
+            <h2>SECURITY DEPOSIT</h2>
+
+            <p>
+                The tenant shall provide a security deposit of
+                <strong>₹${deposit}</strong>.
+            </p>
 
             <h2>TERMS AND CONDITIONS</h2>
 
             <ol>
+                <li>The tenant shall use the property for lawful purposes.</li>
+
                 <li>
-                    The information provided by the user
-                    should be accurate.
+                    The tenant shall pay the agreed rent on time.
                 </li>
 
                 <li>
-                    The parties should comply with the
-                    applicable terms and conditions.
+                    The property shall be maintained in reasonable condition.
                 </li>
 
                 <li>
-                    Any changes should be mutually agreed
-                    upon by the concerned parties.
+                    Any changes to this agreement should be mutually agreed
+                    upon by both parties.
                 </li>
 
                 <li>
-                    The completed document should be
-                    retained for record purposes.
+                    Both parties should retain a copy of this agreement.
                 </li>
             </ol>
 
             <h2>DECLARATION</h2>
 
             <p>
-                This document has been generated based on
-                the information provided by the user.
+                Both parties confirm that the information provided
+                for this draft agreement is accurate to the best
+                of their knowledge.
             </p>
 
             <br><br>
@@ -347,13 +274,15 @@ function generateDocument(documentType) {
             <div class="signatures">
 
                 <div>
-                    ______________________<br>
-                    Signature
+                    __________________________<br>
+                    Landlord Signature<br>
+                    ${landlordName}
                 </div>
 
                 <div>
-                    ______________________<br>
-                    Witness / Other Party
+                    __________________________<br>
+                    Tenant Signature<br>
+                    ${tenantName}
                 </div>
 
             </div>
@@ -361,17 +290,13 @@ function generateDocument(documentType) {
             <hr>
 
             <p class="disclaimer">
-
                 <strong>Disclaimer:</strong>
-                This document is generated for educational
-                and informational purposes only and is not
-                a substitute for professional legal advice.
-
+                This document is a generated draft for educational
+                and informational purposes. It should be reviewed
+                by a qualified legal professional before actual use.
             </p>
 
         </div>
-
-        <br>
 
         <button onclick="window.print()">
             Print / Save as PDF
@@ -379,3 +304,4 @@ function generateDocument(documentType) {
 
     `;
 }
+
