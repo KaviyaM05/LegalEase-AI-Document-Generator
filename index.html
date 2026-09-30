@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
 
     <title>LegalEase - AI Legal Document Generator</title>
 
@@ -14,21 +14,129 @@
 
 <body>
 
-    <div class="home-page">
+    <!-- HOME PAGE -->
 
-        <h1>LegalEase</h1>
+    <div id="homePage" class="page">
 
-        <h2>AI Legal Document Generator</h2>
+        <div class="home-container">
 
-        <p>
-            Create simple legal document drafts quickly and easily.
-        </p>
+            <h1>LegalEase</h1>
 
-        <button id="getStartedBtn">
-            Get Started
-        </button>
+            <h2>AI Legal Document Generator</h2>
+
+            <p>
+                Create simple legal document drafts quickly and easily.
+            </p>
+
+            <button id="getStartedBtn" class="primary-button">
+                Get Started
+            </button>
+
+        </div>
 
     </div>
+
+
+    <!-- DOCUMENT SELECTION PAGE -->
+
+    <div id="selectionPage" class="page hidden">
+
+        <div class="container">
+
+            <h1>Choose Your Document</h1>
+
+            <p>
+                Select the type of legal document you want to create.
+            </p>
+
+            <div class="document-options">
+
+                <button class="document-button"
+                        onclick="showForm('Rental Agreement')">
+                    Rental Agreement
+                </button>
+
+                <button class="document-button"
+                        onclick="showForm('Leave and License Agreement')">
+                    Leave & License Agreement
+                </button>
+
+                <button class="document-button"
+                        onclick="showForm('Affidavit')">
+                    Affidavit
+                </button>
+
+                <button class="document-button"
+                        onclick="showForm('Legal Notice')">
+                    Legal Notice
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FORM PAGE -->
+
+    <div id="formPage" class="page hidden">
+
+        <div class="container">
+
+            <h1 id="formTitle"></h1>
+
+            <p>
+                Enter the details to generate your legal document.
+            </p>
+
+            <div id="formContainer" class="form-container"></div>
+
+            <div class="button-row">
+
+                <button class="secondary-button"
+                        onclick="goBackToSelection()">
+                    ← Back
+                </button>
+
+                <button class="primary-button"
+                        onclick="generateDocument()">
+                    Generate Document
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT PAGE -->
+
+    <div id="resultPage" class="page hidden">
+
+        <div class="container">
+
+            <div id="result"></div>
+
+            <div class="button-row">
+
+                <button class="secondary-button"
+                        onclick="goBackToSelection()">
+                    ← Create Another Document
+                </button>
+
+                <button class="primary-button"
+                        onclick="window.print()">
+                    Print / Save as PDF
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <script src="script.js"></script>
 
